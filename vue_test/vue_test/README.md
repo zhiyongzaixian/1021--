@@ -1,24 +1,19 @@
-# vue_test
+## DOM事件 VS vue自定义事件
+### 标准DOM事件
+- 事件绑定在html标签身上
+- 事件名需要是js引擎提供的指定的事件： click,input, blur
+- 事件由js引擎响应，由js引擎触发指定的回调
+### vue自定义事件
+- 事件绑定在组件标签身上
+- 事件名可以自定义：click, xxx, myClick
+- 事件需要我们主动触发，主动去调用指定的事件回调
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 自定义事件
+1. 绑定事件
+  - 事件名
+  - 事件的回调 
+2. 触发事件
+  - 事件名
+  - 提供数据参数， 标准的DOM事件event， 自定义的参数可以自定义

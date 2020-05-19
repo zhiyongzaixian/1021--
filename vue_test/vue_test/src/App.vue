@@ -1,21 +1,12 @@
 <template>
 	<div id="app">
-		<h1>App - 动态组件</h1>
-		<div class="tabs">
-			<div class="tabItem" @click="changeTab('Home')">
-				Home
-			</div>
-			<div class="tabItem" @click="changeTab('Personal')">
-				Personal
-			</div>
-		</div>
+    <!-- 标准的DOM事件 -->
+    <!-- $event 是Vue自定义的event事件对象，  event是js引擎提供的事件对象-->
+		<h1 @click="handleClick($event)">App - 组件通信方式</h1>
 
-		<keep-alive :exclude="['Personal']">
-			<!-- 动态组件默认会销毁非当前加载的组件 -->
-			<!--<component :is="comName"></component>-->
-			<component :is="comName" msg="通过动态组件导入的数据" :getHomeData="getHomeData"></component>
-		</keep-alive>
-
+    <!-- -->
+    <Home @click="handleHomeClick" :getHomeData="getHomeData"></Home>
+    <Personal></Personal>
 	</div>
 </template>
 
@@ -32,21 +23,23 @@
 			}
 		},
 		methods: {
-      changeTab(comName){
-        this.comName = comName
-			},
-			getHomeData(msg){
-        console.log('子传父的数据： ', msg);
-			}
-		},
-		errorCaptured(errorObj, errorVM, errorMsg){
-		  console.log('---- errorCaptured 捕获子孙组件的错误--------');
-		  console.log(errorObj.message, errorVM, errorMsg);
-
-      // Home组件实例.getHomeData(Home组件实例.msg1)
-      errorVM.getHomeData(errorVM.msg1)
-		  return false // 错误不会向上传播，默认再次解决完错误
-		}
+		  getHomeData(data){
+		    console.log('子组件传递过来的数据： ', data);
+      },
+      // handleClick(){
+		  //   console.log('标准DOM事件： click');
+		  //   console.log(event); // 直接打印，访问的全局的变量
+      // },
+      handleClick(event){
+        console.log('标准DOM事件： click');
+        console.log(event); // js引擎给事件回调传入的参数对象
+      },
+      handleHomeClick(){
+        console.log('自定义事件: click');
+      }
+    },
+    mounted(){
+    }
 	}
 </script>
 

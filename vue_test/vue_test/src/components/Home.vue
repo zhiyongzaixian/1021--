@@ -1,20 +1,30 @@
 <template>
   <div>
     <h2>Home组件</h2>
+    <button @click="handleClick">触发自定义事件的</button>
   </div>
 </template>
 
 <script>
   export default {
+    props: ['getHomeData'],
     data(){
       return {
-        msg1: '子组件的数据msg1'
+        msg: 'home组件的数据'
       }
     },
-    props: ['msg', 'getHomeData'],
     mounted(){
-      console.log(aaa);
-      this.getHomeData(this.msg1)
+      this.getHomeData(this.msg)
+      // 绑定事件
+      this.$eventBus.$on('myClick', (event) => {
+        console.log('eventBus绑定的事件');
+        console.log(event);
+      })
+    },
+    methods: {
+      handleClick(){
+        this.$emit('click')
+      }
     }
   }
 </script>

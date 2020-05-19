@@ -8,6 +8,14 @@ Vue.config.errorHandler = function (err, vm, info) {
   console.log(err, vm, info);
 }
 
-new Vue({
+Vue.prototype.$eventBus = new Vue()
+
+const vm = new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+// 组件的实例对象的原型对象是vm
+// 组件实例(this).__proto__ == vm
+// vm.__proto__ = Vue.prototype
+// 组件实例(this).__proto__.__proto__  === Vue.prototype
+console.log(vm.$eventBus);
