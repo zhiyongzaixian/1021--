@@ -7,7 +7,16 @@
     <br>
 
     <h2>Home组件</h2>
-    <p>params参数： {{$route.params.id}}</p>
+    <slot  :person="person">
+      home组件： {{person.name}}
+    </slot>
+    <br>
+    <p>slot插槽</p>
+    <br>
+    <slot name="rightSlot"></slot>
+
+
+
   </div>
 </template>
 
@@ -16,12 +25,11 @@
   export default {
     data(){
       return {
-
+        person: {
+          name: 'curry',
+          age: 32
+        }
       }
-    },
-    mounted(){
-      console.log(this.$router);
-      console.log(this.$route);
     }
   }
 </script>

@@ -1,18 +1,21 @@
 <template>
 	<div id="app">
 		<h1 >App - 组件通信方式</h1>
-    <p>App组件： {{}}</p>
-    <Home>
-      <template v-slot:default="slotPropsObj">
-        <p>我是向home组件左left护法导入的标签数据</p>
-        <p>{{slotPropsObj.person.age}} --- {{slotPropsObj.person.name}}</p>
-      </template>
+    <!-- 静态路由 请求方式-->
+    <!--<router-link :to="`/home/${shopItem.id}`">home链接</router-link>&nbsp;-->
+    <!--<router-link to="/personal?a=1">personal链接</router-link>-->
 
-      <template v-slot:rightSlot>
-        <p>我是向home组件右right护法导入的标签数据</p>
-      </template>
-    </Home>
-    <Personal></Personal>
+
+    <router-link :to="{name: 'Home', params: {id: 123}}">home链接</router-link>&nbsp;
+    <!--params 不能和path搭配使用-->
+    <!--<router-link :to="{path: '/home', params: {id: 123}}">home链接2</router-link>&nbsp;-->
+    <router-link :to="{path: '/personal', query: {a: 1,b: 2}}">personal链接</router-link>
+    <router-link :to="{name: 'personal', query: {a: 1,c: 2}}">personal链接2</router-link>
+    <br>
+    <br>
+    <br>
+    <!-- 路由容器，声明接收路由组件-->
+    <router-view></router-view>
 	</div>
 </template>
 
@@ -23,8 +26,14 @@
 	export default {
 		components: {
       Home, Personal
-		}
-
+		},
+    data(){
+		  return {
+		    shopItem: {
+		      id: 123
+        }
+      }
+    }
 	}
 </script>
 
