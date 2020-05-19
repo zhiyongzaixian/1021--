@@ -1,19 +1,35 @@
 <template>
   <div>
+    <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <h2>Home组件</h2>
-    <ul>
-      <li v-for="item in newArr" :key="item">{{item}}</li>
-    </ul>
+    <slot  :person="person">
+      home组件： {{person.name}}
+    </slot>
+    <br>
+    <p>slot插槽</p>
+    <br>
+    <slot name="rightSlot"></slot>
+
+
+
   </div>
 </template>
 
 <script>
-  import {mapState} from 'vuex'
+
   export default {
-    computed: {
-      ...mapState({
-        newArr: state => state.home.arr
-      })
+    data(){
+      return {
+        person: {
+          name: 'curry',
+          age: 32
+        }
+      }
     }
   }
 </script>

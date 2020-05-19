@@ -1,10 +1,5 @@
 <template>
   <div>
-    <hr>
-    <br>
-    <br>
-    <br>
-    <br>
     <h2>Personal 组件</h2>
   </div>
 </template>
