@@ -1,30 +1,19 @@
 <template>
   <div>
     <h2>Home组件</h2>
-    <button @click="handleClick">触发自定义事件的</button>
+    <ul>
+      <li v-for="item in newArr" :key="item">{{item}}</li>
+    </ul>
   </div>
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
-    props: ['getHomeData'],
-    data(){
-      return {
-        msg: 'home组件的数据'
-      }
-    },
-    mounted(){
-      this.getHomeData(this.msg)
-      // 绑定事件
-      this.$eventBus.$on('myClick', (event) => {
-        console.log('eventBus绑定的事件');
-        console.log(event);
+    computed: {
+      ...mapState({
+        newArr: state => state.home.arr
       })
-    },
-    methods: {
-      handleClick(){
-        this.$emit('click')
-      }
     }
   }
 </script>

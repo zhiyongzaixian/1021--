@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import store from './store'
+
 Vue.config.productionTip = false
 
 Vue.config.errorHandler = function (err, vm, info) {
@@ -12,11 +12,10 @@ Vue.prototype.$eventBus = new Vue()
 
 const vm = new Vue({
   render: h => h(App),
-  store
 }).$mount('#app')
 
 // 组件的实例对象的原型对象是vm
 // 组件实例(this).__proto__ == vm
 // vm.__proto__ = Vue.prototype
 // 组件实例(this).__proto__.__proto__  === Vue.prototype
-// console.log(vm.$eventBus);
+console.log(vm.$eventBus);
