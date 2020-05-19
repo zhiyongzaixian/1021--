@@ -20,12 +20,12 @@
 
 <script>
   import {mapState} from 'vuex'
-	import Home from  './components/Home'
-	import Personal from  './components/Personal'
+	// import Home from  './components/Home'
+	// import Personal from  './components/Personal'
 	export default {
-		components: {
-      Home, Personal
-		},
+		// components: {
+    //   Home, Personal
+		// },
     data(){
 		  return {
 		    shopItem: {

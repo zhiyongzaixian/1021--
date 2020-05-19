@@ -21,12 +21,14 @@ router.beforeEach((to, from, next) => {
   // }else{
   //   跳转至登录页面
   // }
-  let isLogin = false;
-  if(!isLogin && to.path !== '/personal'){
-    next('/personal');
-  }else {
-    next();
-  }
+  // let isLogin = false;
+  // if(!isLogin && to.path !== '/personal'){
+  //   next('/personal');
+  // }else {
+  //   next();
+  // }
+  
+  next();
   
   
 })

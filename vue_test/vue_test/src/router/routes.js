@@ -1,6 +1,10 @@
+// 静态引入方式
+// import Home from '../components/Home'
+// import Personal from '../components/Personal'
 
-import Home from '../components/Home'
-import Personal from '../components/Personal'
+// 动态引入方式
+const Home = () => import('../components/Home')
+const Personal = () => import('../components/Personal')
 
 export default [
   // {
