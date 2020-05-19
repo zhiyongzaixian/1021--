@@ -10,6 +10,7 @@
     <!--params 不能和path搭配使用-->
     <!--<router-link :to="{path: '/home', params: {id: 123}}">home链接2</router-link>&nbsp;-->
     <router-link :to="{path: '/personal', query: {a: 1,b: 2}}">personal链接</router-link>
+    <router-link :to="{name: 'personal', query: {a: 1,c: 2}}">personal链接2</router-link>
     <br>
     <br>
     <br>

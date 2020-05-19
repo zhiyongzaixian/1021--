@@ -33,9 +33,5 @@ export default [
     meta: {
       isShowFooter: true
     }
-  },
-  {
-    path: '/',
-    redirect: '/home/aaa'
   }
 ]
